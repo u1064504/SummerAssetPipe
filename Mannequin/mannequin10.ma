@@ -1,6 +1,6 @@
 //Maya ASCII 2018ff09 scene
-//Name: mannequin09.ma
-//Last modified: Tue, Jun 11, 2019 01:34:18 PM
+//Name: mannequin10.ma
+//Last modified: Tue, Jun 11, 2019 01:38:17 PM
 //Codeset: 1252
 requires maya "2018ff09";
 requires "mtoa" "3.1.2.1";
@@ -17,7 +17,7 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "3D63B263-4EBD-8C8C-78BE-01BAE397438F";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 2.3194161632898727 204.21961459972616 189.9360739163522 ;
+	setAttr ".t" -type "double3" 108.49145319100049 253.81163408689534 422.42936049199807 ;
 	setAttr ".r" -type "double3" -1461.6939427600764 -3224.6594212955274 0 ;
 	setAttr ".rp" -type "double3" 0 2.8421709430404007e-14 -2.8421709430404007e-14 ;
 	setAttr ".rpt" -type "double3" -9.8830844766814622e-15 -5.300501341928009e-14 5.8389951031606949e-14 ;
@@ -26,7 +26,7 @@ createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".pze" yes;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 214.8704305165364;
+	setAttr ".coi" 467.63027268195503;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -12908,11 +12908,11 @@ createNode ikEffector -n "effector2" -p "joint2";
 	rename -uid "98FA5EA8-4905-FE59-15CC-D695AF92118E";
 	setAttr ".v" no;
 	setAttr ".hd" yes;
-createNode transform -n "group1";
+createNode transform -n "L_Leg";
 	rename -uid "6CA77D60-4980-714F-A590-6582F805809C";
 	setAttr ".t" -type "double3" 9.6471166610717773 25.306482315063477 -2.4524540901184082 ;
 	setAttr ".s" -type "double3" 7 7 7 ;
-createNode transform -n "nurbsCircle1" -p "group1";
+createNode transform -n "nurbsCircle1" -p "L_Leg";
 	rename -uid "1ECEFC1E-4CE7-7D0F-4D74-62A46BB95969";
 	setAttr -l on ".s";
 createNode nurbsCurve -n "nurbsCircleShape1" -p "nurbsCircle1";
@@ -12925,11 +12925,11 @@ createNode ikHandle -n "L_Leg_ik" -p "nurbsCircle1";
 	setAttr ".s" -type "double3" 0.14012867575620344 0.14012867575620344 0.14012867575620344 ;
 	setAttr ".pv" -type "double3" -0.26505525017555798 0.0037635125205087803 1.3759855112778621 ;
 	setAttr ".roc" yes;
-createNode transform -n "group2";
+createNode transform -n "R_Leg";
 	rename -uid "C9340D39-4A7D-82DE-EAD7-B79EDA0965BB";
 	setAttr ".t" -type "double3" -9.6471157073974609 25.306482315063477 -2.4524540901184082 ;
 	setAttr ".s" -type "double3" 7 7 7 ;
-createNode transform -n "nurbsCircle2" -p "group2";
+createNode transform -n "nurbsCircle2" -p "R_Leg";
 	rename -uid "53934A35-4BDA-A627-66D0-3C8318AB523D";
 	setAttr -l on ".s";
 createNode nurbsCurve -n "nurbsCircleShape2" -p "nurbsCircle2";
@@ -12952,10 +12952,10 @@ createNode nurbsCurve -n "Waist_CTRLShape" -p "Waist_CTRL";
 	rename -uid "5EC35C3D-4470-DADC-EFE4-98A78C5264FA";
 	setAttr -k off ".v";
 	setAttr ".tw" yes;
-createNode transform -n "Torso_CTRL_GRP";
+createNode transform -n "Torso_CTRL_GRP" -p "Waist_CTRL";
 	rename -uid "CA939EE0-4A5B-E023-E109-F5AAEB021FE9";
-	setAttr ".t" -type "double3" 0 118.57328796386719 -0.99208402633666992 ;
-	setAttr ".s" -type "double3" 16.276738849780578 16.276738849780578 16.276738849780578 ;
+	setAttr ".t" -type "double3" -1.3768941458349317e-06 0.9514298705676012 0.148347864279541 ;
+	setAttr ".s" -type "double3" 1.0000000000000002 1.0000000000000002 1.0000000000000002 ;
 createNode transform -n "Torso_CTRL" -p "Torso_CTRL_GRP";
 	rename -uid "BA80F28F-4C60-795C-AEEB-5685709BE178";
 	setAttr -l on ".s" -type "double3" 0.76984299082174468 0.76984299082174468 0.76984299082174468 ;
@@ -12979,10 +12979,10 @@ createNode nurbsCurve -n "Torso_CTRLShape" -p "Torso_CTRL";
 		6.7857323231109122e-17 6.7857323231109122e-17 -1.1081941875543877
 		-0.78361162489122449 4.7982373409884719e-17 -0.78361162489122438
 		;
-createNode transform -n "Neck_CTRL_GRP";
+createNode transform -n "Neck_CTRL_GRP" -p "Torso_CTRL";
 	rename -uid "FF23F192-420C-71BE-03A6-F29DBDBAB2D4";
-	setAttr ".t" -type "double3" -0.17232918739318848 154.47344970703125 -4.48822021484375 ;
-	setAttr ".s" -type "double3" 8.9347080779783372 8.9347080779783372 8.9347080779783372 ;
+	setAttr ".t" -type "double3" -0.013752741645898106 2.8650146673830701 -0.27900936856221298 ;
+	setAttr ".s" -type "double3" 0.7130349404921047 0.7130349404921047 0.7130349404921047 ;
 createNode transform -n "Neck_CTRL" -p "Neck_CTRL_GRP";
 	rename -uid "DC06F29D-463C-0C9D-3BDC-74BC5B93CC41";
 	setAttr -l on ".s";
@@ -13005,10 +13005,10 @@ createNode nurbsCurve -n "Neck_CTRLShape" -p "Neck_CTRL";
 		6.7857323231109122e-17 6.7857323231109122e-17 -1.1081941875543877
 		-0.78361162489122449 4.7982373409884719e-17 -0.78361162489122438
 		;
-createNode transform -n "R_Shoulder_CTRL_GRP";
+createNode transform -n "R_Shoulder_CTRL_GRP" -p "Torso_CTRL";
 	rename -uid "75421BC0-4D55-8EC9-3CD2-77A4CA9C4357";
-	setAttr ".t" -type "double3" -15.081758499145508 146.87596130371094 -4.7389860153198242 ;
-	setAttr ".s" -type "double3" 7.0473305433102444 7.0473305433102444 7.0473305433102444 ;
+	setAttr ".t" -type "double3" -1.2036006862339241 2.2586966271884403 -0.29902174905180262 ;
+	setAttr ".s" -type "double3" 0.56241265755091363 0.56241265755091363 0.56241265755091363 ;
 createNode transform -n "R_Shoulder_CTRL" -p "R_Shoulder_CTRL_GRP";
 	rename -uid "A83DF89A-4BA6-406B-16B5-FCBFFD201D91";
 	setAttr ".rp" -type "double3" 0 3.5527136788005009e-15 0 ;
@@ -13084,10 +13084,10 @@ createNode nurbsCurve -n "R_Wrist_CTRLShape" -p "R_Wrist_CTRL";
 		-6.7857323231109109e-17 6.7857323231109134e-17 -1.1081941875543877
 		-2.219791070735185e-16 -0.78361162489122449 -0.78361162489122438
 		;
-createNode transform -n "L_Shoulder_CTRL_GRP";
+createNode transform -n "L_Shoulder_CTRL_GRP" -p "Torso_CTRL";
 	rename -uid "337F5E03-4DE2-598B-E17B-18A88891B7E1";
-	setAttr ".t" -type "double3" 15.081757545471191 146.87596130371094 -4.7389860153198242 ;
-	setAttr ".s" -type "double3" 7.0473305433102444 7.0473305433102444 7.0473305433102444 ;
+	setAttr ".t" -type "double3" 1.2036006101258852 2.2586966271884403 -0.29902174905180262 ;
+	setAttr ".s" -type "double3" 0.56241265755091363 0.56241265755091363 0.56241265755091363 ;
 createNode transform -n "L_Shoulder_CTRL" -p "L_Shoulder_CTRL_GRP";
 	rename -uid "2EEAAC67-4440-3467-AA00-EFA2E638E5F2";
 	setAttr ".rp" -type "double3" 0 3.5527136788005009e-15 0 ;
@@ -18472,4 +18472,4 @@ connectAttr "groupId246.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId252.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId253.msg" ":initialShadingGroup.gn" -na;
 connectAttr "ikRPsolver.msg" ":ikSystem.sol" -na;
-// End of mannequin09.ma
+// End of mannequin10.ma
